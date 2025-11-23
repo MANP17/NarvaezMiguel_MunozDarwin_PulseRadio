@@ -1,0 +1,7 @@
+.vs/
+PulseRadioAPI/bin/
+PulseRadioAPI/obj/
+*/bin/
+*/obj/
+PulseRadioAPI/*.user
+*.suo

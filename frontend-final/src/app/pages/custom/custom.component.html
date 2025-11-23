@@ -1,0 +1,20 @@
+<div class="page-wrapper">
+    <h1>Estaciones Personalizadas de {{username}}</h1>
+    <a [routerLink]="['new-custom']">Agregar</a>
+    <div class="stations-container">
+        @if(loading) {
+        <app-spinner></app-spinner>
+        } @else {
+        @if(stations.length > 0) {
+        @for (station of stations; track $index) {
+        <app-station-card [favicon]="''" [name]="station.name" [country]="''"
+            [language]="''" [url]="station.url" [urlDecoded]="station.url" [uuid]="station.id"
+            [favorite]="false" [custom]="true" (deleted)="onStationDeleted($event)">
+        </app-station-card>
+        }
+        } @else {
+            <p>Aún no tienes estaciones personalizadas</p>
+        }
+        }
+    </div>
+</div>

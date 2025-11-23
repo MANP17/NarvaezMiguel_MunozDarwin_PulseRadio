@@ -1,0 +1,28 @@
+<div class="form-container">
+    <p-toast />
+
+    <h1>Nueva Estación Personalizada</h1>
+
+    <form [formGroup]="newCustomForm" (ngSubmit)="submit()" class="form">
+
+        <div class="form-group">
+            <input type="text" formControlName="name" placeholder="Nombre de la estación" />
+            <div class="error" *ngIf="newCustomForm.get('name')?.touched">
+                <small *ngIf="newCustomForm.get('name')?.hasError('required')">
+                    El nombre de la estación es obligatorio.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" formControlName="url" placeholder="URL"/>
+            <div class="error" *ngIf="newCustomForm.get('url')?.touched">
+                <small *ngIf="newCustomForm.get('url')?.hasError('required')">
+                    La URL es obligatoria.
+                </small>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="newCustomForm.invalid">Agregar</button>
+    </form>
+</div>

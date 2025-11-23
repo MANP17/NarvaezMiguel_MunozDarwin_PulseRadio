@@ -1,0 +1,26 @@
+<div class="page-wrapper">
+    <a [routerLink]="['genre', genre]"><b>{{capitalize(genre)}}</b></a>
+    
+    <div class="stations-container">
+        @if(loading) {
+            <app-spinner></app-spinner>
+        } @else {
+            @for (station of stations; track $index) {
+                <app-station-card
+                    [favicon]="station.favicon"
+                    [name]="station.name"
+                    [country]="station.country"
+                    [language]="station.language"
+                    [url]="station.url"
+                    [urlDecoded]="station.url_resolved"
+                    [uuid]="station.stationuuid"
+                    [favorite]="isFavorite(station.stationuuid)"
+                    [custom]="false">
+                </app-station-card>
+            }
+            <div class="more-div">
+                <a [routerLink]="['genre', genre]">Mostrar más <b>{{capitalize(genre)}}</b></a>
+            </div>
+        }
+    </div>
+</div>

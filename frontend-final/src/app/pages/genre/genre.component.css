@@ -1,0 +1,55 @@
+/* ============================= */
+/* 📌 CONTENEDOR GENERAL */
+/* ============================= */
+.page-wrapper {
+  width: 100%;
+  max-width: 1200px;   /* 💡 evita que las cards se estiren demasiado */
+  margin: 0 auto;      /* 💡 centra todo */
+  padding: 20px;       /* 💡 agrega espacio a los lados */
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+/* ============================= */
+/* 📌 GRID RESPONSIVE */
+/* ============================= */
+.stations-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile */
+  gap: 30px;
+}
+
+/* Tablet */
+@media (min-width: 1024px) {
+  .stations-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form input {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    outline: none;
+
+    transition: 0.3s ease;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* Glow focus púrpura */
+.form input:focus {
+    border-color: #E100FF;
+    box-shadow: 0 0 12px #E100FF;
+}
+
+/* Placeholder */
+.form input::placeholder {
+    color: rgb(200, 160, 255);
+}

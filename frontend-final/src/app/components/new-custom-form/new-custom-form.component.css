@@ -1,0 +1,157 @@
+/* === CONTENEDOR PRINCIPAL === */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    background: rgba(45, 10, 78, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 60px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 25px rgba(225, 0, 255, 0.2);
+    border: 1px solid rgba(225, 0, 255, 0.25);
+
+    animation: fadeSlide 0.6s ease-out;
+    gap: 20px;
+}
+
+/* Título */
+.form-container h1 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Animación entrada */
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === FORM === */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* === GRUPOS === */
+.form-group {
+    position: relative;
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* === INPUTS === */
+.form input {
+    width: 100%;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    outline: none;
+
+    transition: 0.3s ease;
+    font-size: 0.95rem;
+}
+
+/* Glow focus púrpura */
+.form input:focus {
+    border-color: #E100FF;
+    box-shadow: 0 0 12px #E100FF;
+}
+
+/* Placeholder */
+.form input::placeholder {
+    color: rgb(200, 160, 255);
+}
+
+/* === BOTÓN === */
+.form button {
+    width: 100%;
+    background: linear-gradient(90deg, #592689, #E100FF);
+    border-radius: 40px;
+    border: none;
+    padding: 12px;
+    color: white;
+    font-weight: 600;
+
+    transition: 0.3s ease;
+    box-shadow: 0 0 12px rgba(225, 0, 255, 0.35);
+}
+
+/* Hover con efecto neon pulse */
+.form button:hover:enabled {
+    cursor: pointer;
+    transform: scale(1.03);
+    box-shadow: 0 0 20px #E100FF;
+}
+
+/* Botón deshabilitado */
+.form button:disabled {
+    background: #0B0014;
+    box-shadow: none;
+}
+
+/* === LINKS === */
+.form p {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #d9c3ff;
+}
+
+.form p a {
+    color: #E100FF;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.form p a:hover {
+    text-shadow: 0 0 10px #E100FF;
+}
+
+/* === ERRORES === */
+.error {
+    margin-top: 6px;
+    padding-left: 4px;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.error small {
+    display: block;
+    color: #FF4DE7; 
+    font-size: 0.8rem;
+    opacity: 0.95;
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 30px;
+        max-width: 90%;
+    }
+
+    .form-container h1 {
+        font-size: 1.5rem;
+    }
+}

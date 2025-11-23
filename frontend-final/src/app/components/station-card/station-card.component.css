@@ -1,0 +1,155 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: rgba(45, 10, 78, .60);
+  backdrop-filter: blur(30px);
+  padding: 20px;
+  border-radius: 1rem;
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 550px;
+
+  overflow: hidden;
+}
+
+.info h2 {
+   font-size: 1.2rem;
+  margin: 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ============================= */
+/* 📱 MOBILE FIRST (pantallas pequeñas) */
+/* ============================= */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding: 25px;
+  }
+
+  .info {
+    align-items: center;
+  }
+
+  .image img,
+  .error-div {
+    width: 90px;
+    height: 90px;
+  }
+
+  .btn i {
+    font-size: 2rem;
+  }
+}
+
+/* ============================= */
+/* 🟨 TABLET (medium) */
+/* ============================= */
+@media (min-width: 601px) and (max-width: 992px) {
+  .card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+
+  .info {
+    flex: 1 1 100%;
+  }
+
+  .image img,
+  .error-div {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* ============================= */
+/* 🖥️ DESKTOP GRANDE */
+/* ============================= */
+@media (min-width: 993px) {
+  .card {
+    height: 120px;
+  }
+  .image img,
+  .error-div {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+
+.image img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: white;
+  padding: 5px;
+}
+
+.error-div {
+  width: 80px;
+  height: 80px;
+  border: 1px dashed #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.1);
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+}
+
+.btn i {
+  font-size: 2.3rem;
+  transition: color 0.2s ease;
+}
+
+.btn i:hover {
+  color: #A020F0;
+  cursor: pointer;
+}
+
+
+.pi-heart-fill {
+  color: #A020F0;
+}
+
+.delete-button:hover {
+  cursor: pointer;
+  background-color: rgba(160, 32, 240, .15);
+}

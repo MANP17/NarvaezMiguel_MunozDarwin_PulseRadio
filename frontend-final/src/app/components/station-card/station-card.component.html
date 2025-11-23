@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="image">
+        @if(!custom) {
+            @if(favicon != '') {
+            <img [src]="favicon"/>
+        } @else {
+            <div class="error-div">
+                NO IMAGE
+            </div>
+        }
+        } @else {
+            
+            <button class="error-div delete-button" (click)="deleteCustom()">
+                ELIMINAR
+            </button>
+        }
+    </div>
+    <div class="info">
+        <h2>{{name}}</h2>
+        <h4>{{country}}</h4>
+        <h4>{{language}}</h4>
+    </div>
+    <div>
+        
+        @if(isPlaying && station.uuid === this.uuid) {
+            <button class="btn" (click)="pause()">
+                <i [class]='"pi pi-pause"'></i>
+            </button>
+        } @else{
+            <button class="btn" (click)="play()">
+                <i [class]='"pi pi-play"'></i>
+            </button>
+        }
+    </div>
+    @if(!custom) {
+        <div>
+        <button class="btn" (click)="toggleFavorite()">
+            @if (favorite) {
+                <i class="pi pi-heart-fill"></i>
+            } @else {
+                <i class="pi pi-heart"></i>
+            }
+        </button>
+    </div>
+    }
+</div>

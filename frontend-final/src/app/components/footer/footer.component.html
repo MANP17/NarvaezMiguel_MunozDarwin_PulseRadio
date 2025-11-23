@@ -1,0 +1,27 @@
+<footer class="player-footer" *ngIf="station">
+  <div class="player-left">
+    @if(station.favicon) {
+      <img [src]="station.favicon || 'assets/default.png'" class="cover" />
+    } @else {
+      <div class="error-div">NO IMAGE</div>
+    }
+    <div class="station-info">
+      <h4>{{ station.name }}</h4>
+      <p *ngIf="isPlaying">En vivo</p>
+    </div>
+    <!-- <button class="btn">
+            <i class="pi pi-heart"></i>
+        </button> -->
+  </div>
+
+  <div class="player-center">
+    <button class="btn" (click)="togglePlay()">
+      <i [class]="isPlaying ? 'pi pi-pause' : 'pi pi-play'"></i>
+    </button>
+  </div>
+
+  <div class="player-right">
+    <i class="pi pi-volume-up"></i>
+    <input type="range" (input)="setVolume($event)" value="70" />
+  </div>
+</footer>

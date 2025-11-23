@@ -1,0 +1,31 @@
+/* ============================= */
+/* 📌 CONTENEDOR GENERAL */
+/* ============================= */
+.page-wrapper {
+  width: 100%;
+  max-width: 1200px;   /* 💡 evita que las cards se estiren demasiado */
+  margin: 0 auto;      /* 💡 centra todo */
+  padding: 20px;       /* 💡 agrega espacio a los lados */
+  box-sizing: border-box;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* ============================= */
+/* 📌 GRID RESPONSIVE */
+/* ============================= */
+.stations-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile */
+  gap: 30px;
+}
+
+/* Tablet */
+@media (min-width: 1024px) {
+  .stations-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
