@@ -41,9 +41,9 @@ namespace PulseRadioAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-custom")]
+        [Route("delete-custom/{custom_id}")]
         [Authorize(AuthenticationSchemes = "JwtAuth")]
-        public async Task<IActionResult> DeleteCustom([FromBody] DeleteCustomDTO dto)
+        public async Task<IActionResult> DeleteCustom([FromRoute] int custom_id)
         {
             var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
@@ -54,7 +54,7 @@ namespace PulseRadioAPI.Controllers
 
 
             var custom = await _dbTestContext.Customs
-                .FirstOrDefaultAsync(f => f.Id == dto.Id && f.UserId == parsedId);
+                .FirstOrDefaultAsync(f => f.Id == custom_id && f.UserId == parsedId);
 
 
             if (custom == null)

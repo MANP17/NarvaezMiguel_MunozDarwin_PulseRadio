@@ -41,9 +41,9 @@ namespace PulseRadioAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("delete-favorite")]
+        [Route("delete-favorite/{uuid}")]
         [Authorize(AuthenticationSchemes = "JwtAuth")]
-        public async Task<IActionResult> DeleteFavorite([FromBody] DeleteFavoriteDTO dto)
+        public async Task<IActionResult> DeleteFavorite([FromRoute] string uuid)
         {
             var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
@@ -52,12 +52,9 @@ namespace PulseRadioAPI.Controllers
 
             int parsedId = int.Parse(userId);
 
-            if (string.IsNullOrEmpty(dto.Uuid))
-                return BadRequest(new { message = "Uuid requerido" });
-
 
             var favorite = await _dbTestContext.Favorites
-                .FirstOrDefaultAsync(f => f.Uuid == dto.Uuid && f.UserId == parsedId);
+                .FirstOrDefaultAsync(f => f.Uuid == uuid && f.UserId == parsedId);
 
 
             if (favorite == null)
