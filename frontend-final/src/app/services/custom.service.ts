@@ -21,10 +21,9 @@ export class CustomService {
     });
   }
 
-  deleteCustom(data: { id: number }): Observable<any> {
+  deleteCustom(id: number): Observable<any> {
     return this.http
-      .delete(`${this.apiUrl}/delete-custom`, {
-        body: data,
+      .delete(`${this.apiUrl}/delete-custom/${id}`, {
         withCredentials: true,
       })
   }

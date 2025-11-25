@@ -48,7 +48,7 @@ export class StationCardComponent implements OnInit {
   toggleFavorite() {
     if (this.auth.isLoggedIn()) {
       if (this.favorite) {
-        this.favoritesService.deleteFavorite({ uuid: this.uuid }).subscribe({
+        this.favoritesService.deleteFavorite(this.uuid).subscribe({
           next: (res: any) => {
             if (res.isSuccess) {
               this.ms.add({
@@ -93,7 +93,7 @@ export class StationCardComponent implements OnInit {
     }
   }
   deleteCustom() {
-    this.customService.deleteCustom({id: Number(this.uuid)}).subscribe({
+    this.customService.deleteCustom(Number(this.uuid)).subscribe({
       next: (res) => {
         if(res.isSuccess) {
           this.deleted.emit(Number(this.uuid))

@@ -25,10 +25,8 @@ export class FavoritesService {
     );
   }
 
-  deleteFavorite(data: {uuid: string}) {
-    console.log(data)
-    return this.http.request('delete', `${this.apiUrl}/delete-favorite`, {
-      body: data,
+  deleteFavorite(uuid: string) {
+    return this.http.delete(`${this.apiUrl}/delete-favorite/${uuid}`, {
       withCredentials: true
     }).pipe(
       tap(() => this.favoritesChanged$.next(true))
